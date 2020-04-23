@@ -3,6 +3,8 @@ import random
 
 import cherrypy
 
+from move_functions import *
+
 """
 This is a simple Battlesnake server written in Python.
 For instructions see https://github.com/BattlesnakeOfficial/starter-snake-python/README.md
@@ -39,14 +41,14 @@ class Battlesnake(object):
         # Valid moves are "up", "down", "left", or "right".
         # TODO: Use the information in cherrypy.request.json to decide your next move.
         data = cherrypy.request.json
-        return get_moves(data)
+        return avoid_occupied_spaces(data)
         
-        # Choose a random direction to move in
-        possible_moves = ["up", "down", "left", "right"]
-        move = random.choice(possible_moves)
-
-        print(f"MOVE: {move}")
-        return {"move": move}
+##        # Choose a random direction to move in
+##        possible_moves = ["up", "down", "left", "right"]
+##        move = random.choice(possible_moves)
+##
+##        print(f"MOVE: {move}")
+##        return {"move": move}
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
@@ -56,52 +58,6 @@ class Battlesnake(object):
         data = cherrypy.request.json
         print("END")
         return "ok"
-
-def get_moves(data):
-    head = data['you']['body'][0]
-    all_moves = []
-
-    if head['x'] - 1 >= 0:
-        new_coord = {'x':head['x']-1,'y':head['y']}
-        legal = True
-        for snake_dict in data['board']['snakes']:
-            if new_coord in snake_dict['body']:
-                legal = False
-                break
-        if legal and (new_coord not in data['you']['body']):
-            all_moves.append('left')
-
-    if head['x'] + 1 < data['board']['width']:
-        new_coord = {'x':head['x']+1,'y':head['y']}
-        legal = True
-        for snake_dict in data['board']['snakes']:
-            if new_coord in snake_dict['body']:
-                legal = False
-                break
-        if legal and (new_coord not in data['you']['body']):
-            all_moves.append('right')
-
-    if head['y'] - 1 >= 0:
-        new_coord = {'x':head['x'],'y':head['y']-1}
-        legal = True
-        for snake_dict in data['board']['snakes']:
-            if new_coord in snake_dict['body']:
-                legal = False
-                break
-        if legal and (new_coord not in data['you']['body']):
-            all_moves.append('up')
-
-    if head['y'] + 1 < data['board']['height']:
-        new_coord = {'x':head['x'],'y':head['y']+1}
-        legal = True
-        for snake_dict in data['board']['snakes']:
-            if new_coord in snake_dict['body']:
-                legal = False
-                break
-        if legal and (new_coord not in data['you']['body']):
-            all_moves.append('down')
-
-    return {'move':random.choice(all_moves)}
 
 
 
