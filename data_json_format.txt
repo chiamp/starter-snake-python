@@ -1,0 +1,15 @@
+data
+	board
+		height: int
+		width: int
+		food: list[ dict{ 'x':int,'y':int }, ... ]
+		snakes: list[
+			dict{ 'health':int , 'body': list[ dict{ 'x':int,'y':int }, ... ] },
+			.
+			.
+			dict{ 'health':int , 'body': list[ dict{ 'x':int,'y':int }, ... ] } ]
+	you
+		health: int
+		body: list[ dict{ 'x':int,'y':int }, ... ]
+
+		

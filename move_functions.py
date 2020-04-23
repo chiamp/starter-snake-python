@@ -1,6 +1,7 @@
 import random
 
 def avoid_occupied_spaces(data):
+    print('HEALTH: {}'.format(data['you']['health']))
     head = data['you']['body'][0]
     all_moves = []
 
