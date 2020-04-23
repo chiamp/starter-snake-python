@@ -1,3 +1,5 @@
+import random
+
 def avoid_occupied_spaces(data):
     head = data['you']['body'][0]
     all_moves = []
