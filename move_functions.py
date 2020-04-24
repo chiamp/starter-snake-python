@@ -1,11 +1,18 @@
 import random
 
+def get_move(data):
+    # to be called by move function in server.py
+    # whenever you  make a new move function, just replace the return statement with that function call
+    # more convenient than always changing server.py
+    return greedy_eat(data)
+
 def greedy_eat(data):
     head = data['you']['body'][0]
 
     closest_distance = None
     closest_food_dict = None
-    for food_dict in data['board']['food']: distance = abs(head['x']-food_dict['x']) + abs(head['y']-food_dict['y'])
+    for food_dict in data['board']['food']:
+        distance = abs(head['x']-food_dict['x']) + abs(head['y']-food_dict['y'])
         if closest_distance == None or distance < closest_distance:
             closest_distance = distance
             closest_food_dict = food_dict
