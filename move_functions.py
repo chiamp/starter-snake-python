@@ -24,9 +24,8 @@ def greedy_eat(data):
         new_coord = {'x':head['x']-1,'y':head['y']}
         legal = True
         for snake_dict in data['board']['snakes']:
+            if snake_dict['name']==data['you']['name']: continue # skip ourselves
             enemy_head = snake_dict['body'][0]
-            print(new_coord,[{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
-                             {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}])
             if new_coord in snake_dict['body'] or \
                new_coord in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                              {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}]:
@@ -40,39 +39,45 @@ def greedy_eat(data):
         new_coord = {'x':head['x']+1,'y':head['y']}
         legal = True
         for snake_dict in data['board']['snakes']:
+            if snake_dict['name']==data['you']['name']: continue # skip ourselves
+            enemy_head = snake_dict['body'][0]
             if new_coord in snake_dict['body'] or \
                new_coord in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                              {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}]:
                 legal = False
                 break
         if legal and (new_coord not in data['you']['body']):
-            if (abs(new_coord['x']-closest_food_dict['x']) + abs(new_coord['y']-closest_food_dict['y'])) < closest_distance: greedy_moves.append('left')
+            if (abs(new_coord['x']-closest_food_dict['x']) + abs(new_coord['y']-closest_food_dict['y'])) < closest_distance: greedy_moves.append('right')
             else: legal_moves.append('right')
 
     if head['y'] - 1 >= 0:
         new_coord = {'x':head['x'],'y':head['y']-1}
         legal = True
         for snake_dict in data['board']['snakes']:
+            if snake_dict['name']==data['you']['name']: continue # skip ourselves
+            enemy_head = snake_dict['body'][0]
             if new_coord in snake_dict['body'] or \
                new_coord in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                              {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}]:
                 legal = False
                 break
         if legal and (new_coord not in data['you']['body']):
-            if (abs(new_coord['x']-closest_food_dict['x']) + abs(new_coord['y']-closest_food_dict['y'])) < closest_distance: greedy_moves.append('left')
+            if (abs(new_coord['x']-closest_food_dict['x']) + abs(new_coord['y']-closest_food_dict['y'])) < closest_distance: greedy_moves.append('up')
             else: legal_moves.append('up')
 
     if head['y'] + 1 < data['board']['height']:
         new_coord = {'x':head['x'],'y':head['y']+1}
         legal = True
         for snake_dict in data['board']['snakes']:
+            if snake_dict['name']==data['you']['name']: continue # skip ourselves
+            enemy_head = snake_dict['body'][0]
             if new_coord in snake_dict['body'] or \
                new_coord in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                              {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}]:
                 legal = False
                 break
         if legal and (new_coord not in data['you']['body']):
-            if (abs(new_coord['x']-closest_food_dict['x']) + abs(new_coord['y']-closest_food_dict['y'])) < closest_distance: greedy_moves.append('left')
+            if (abs(new_coord['x']-closest_food_dict['x']) + abs(new_coord['y']-closest_food_dict['y'])) < closest_distance: greedy_moves.append('down')
             else: legal_moves.append('down')
 
     if len(greedy_moves) > 0: return {'move':random.choice(greedy_moves)}

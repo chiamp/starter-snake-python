@@ -12,4 +12,47 @@ data
 		health: int
 		body: list[ dict{ 'x':int,'y':int }, ... ]
 
-		
+
+============================================================================================================
+
+{'board': {'food': [{'x': 14, 'y': 11},
+                    {'x': 2, 'y': 0},
+                    {'x': 14, 'y': 5},
+                    {'x': 2, 'y': 5}],
+           'height': 19,
+           'snakes': [{'body': [{'x': 18, 'y': 1},
+                                {'x': 17, 'y': 1},
+                                {'x': 17, 'y': 1}],
+                       'health': 99,
+                       'id': 'gs_4YKpkMyXktyDxSdJCgkthRYK',
+                       'name': 'vanilla agent',
+                       'shout': ''},
+                      {'body': [{'x': 17, 'y': 16},
+                                {'x': 17, 'y': 17},
+                                {'x': 17, 'y': 17}],
+                       'health': 99,
+                       'id': 'gs_dkyVx3MCMWJ8B9KF9yMSDKtb',
+                       'name': 'Node Tutorial Snake',
+                       'shout': ''},
+                      {'body': [{'x': 1, 'y': 8},
+                                {'x': 1, 'y': 9},
+                                {'x': 1, 'y': 9}],
+                       'health': 99,
+                       'id': 'gs_cyQJg6hVh8cK8Mqw8dTFhkVb',
+                       'name': 'shnake',
+                       'shout': ''},
+                      {'body': [{'x': 1, 'y': 16},
+                                {'x': 1, 'y': 17},
+                                {'x': 1, 'y': 17}],
+                       'health': 99,
+                       'id': 'gs_rkfq8WgStwybYFp6vPVHQxP6',
+                       'name': 'Unicorn',
+                       'shout': ''}],
+           'width': 19},
+ 'game': {'id': 'a076b503-8ecb-40a8-a25c-509e70ceea84'},
+ 'turn': 1,
+ 'you': {'body': [{'x': 18, 'y': 1}, {'x': 17, 'y': 1}, {'x': 17, 'y': 1}],
+         'health': 99,
+         'id': 'gs_4YKpkMyXktyDxSdJCgkthRYK',
+         'name': 'vanilla agent',
+         'shout': ''}}
