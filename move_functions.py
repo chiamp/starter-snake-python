@@ -60,7 +60,9 @@ def hueristic_approach(data):
         #don't hit other snake body or own body
         for snake_dict in data['board']['snakes']:
             if new_head in snake_dict['body']: possible_moves.remove(move)
-
+            enemy_head = snake_dict['body'][0]
+            if new_head in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
+                         {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}]: possible_moves.remove(move)
     # Now choose possible move that gives the maximum heuristic value
     hueristic_values = dict()
     for move in possible_moves:
