@@ -40,6 +40,7 @@ def hueristic_approach(data):
     legal_moves = []
     is_legal = True
     for move in possible_moves:
+        print("for move -> ", move)
         if move == "L":
             new_head['x'] = head['x']-1
             new_head['y'] = head['y'] 
@@ -54,17 +55,27 @@ def hueristic_approach(data):
             new_head['y'] = head['y'] - 1
 
         # dont hit edges
-        if new_head['x'] < 0: is_legal = False
-        if new_head['x'] >= data['board']['width']: is_legal = False
-        if new_head['y'] < 0: is_legal = False
-        if new_head['y'] >= data['board']['height']: is_legal = False
+        if new_head['x'] < 0: 
+            print('1')
+            is_legal = False
+        if new_head['x'] >= data['board']['width']: 
+            print('2')
+            is_legal = False
+        if new_head['y'] < 0: 
+            print('3')
+            is_legal = False
+        if new_head['y'] >= data['board']['height']: 
+            print("4")
+            is_legal = False
 
         #don't hit other snake body or own body
         for snake_dict in data['board']['snakes']:
             if snake_dict['name']==data['you']['name']: continue # skip ourselves
             enemy_head = snake_dict['body'][0]
             if new_head in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
-                         {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}] or new_head in snake_dict['body']:is_legal = False
+                         {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}] or new_head in snake_dict['body']:
+            print('5')             
+            is_legal = False
 
         if is_legal:
             legal_moves.append(move)
