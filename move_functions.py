@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 def get_move(data):
     # to be called by move function in server.py
