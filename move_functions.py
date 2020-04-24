@@ -74,7 +74,7 @@ def hueristic_approach(data):
 
         #don't hit other snake body or own body
         for snake_dict in data['board']['snakes']:
-            if snake_dict['name']==data['you']['name']: continue # skip ourselves
+            #if snake_dict['name']==data['you']['name']: continue # skip ourselves
             enemy_head = snake_dict['body'][0]
             if new_head in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                          {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}] or new_head in snake_dict['body']:
