@@ -8,6 +8,8 @@ def get_move(data):
 
 
 def greedy_eat_helper(data,move_direction,closest_distance,closest_food_dict,greedy_moves,legal_moves):
+    head = data['you']['body'][0]
+    
     if move_direction == 'left':
         if head['x'] - 1 < 0: return
         new_coord = {'x':head['x']-1,'y':head['y']}
