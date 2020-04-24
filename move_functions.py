@@ -8,13 +8,14 @@ def get_move(data):
     # to be called by move function in server.py
     # whenever you  make a new move function, just replace the return statement with that function call
     # more convenient than always changing server.py
-    Sequential([Conv2D(filters=4,kernel_size=7,activation='relu',padding='same',input_shape=(7,7,7),data_format='channels_first'),
-                MaxPooling2D(pool_size=2,data_format='channels_first'),
-                Conv2D(filters=2,kernel_size=2,activation='relu',padding='same',data_format='channels_first'),
-                MaxPooling2D(pool_size=2,padding='same',data_format='channels_first'),
-                Flatten(data_format='channels_first'),
-                Dense(units=4,activation='tanh') # left,right,up,down
-                ])
+    x = Sequential([Conv2D(filters=4,kernel_size=7,activation='relu',padding='same',input_shape=(7,7,7),data_format='channels_first'),
+                    MaxPooling2D(pool_size=2,data_format='channels_first'),
+                    Conv2D(filters=2,kernel_size=2,activation='relu',padding='same',data_format='channels_first'),
+                    MaxPooling2D(pool_size=2,padding='same',data_format='channels_first'),
+                    Flatten(data_format='channels_first'),
+                    Dense(units=4,activation='tanh') # left,right,up,down
+                    ])
+    print(x)
     return greedy_eat(data)
 
 
