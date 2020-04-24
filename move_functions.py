@@ -37,6 +37,8 @@ def hueristic_approach(data):
     # Check out of the remaining 3 moves which ones are legal
     # i.e wont hit a wall or body of itself or other snake
     new_head = dict()
+    legal_moves = []
+    is_legal = True
     for move in possible_moves:
         if move == "L":
             new_head['x'] = head['x']-1
@@ -52,21 +54,24 @@ def hueristic_approach(data):
             new_head['y'] = head['y'] - 1
 
         # dont hit edges
-        if new_head['x'] < 0: possible_moves.remove(move)
-        if new_head['x'] >= data['board']['width']-1: possible_moves.remove(move)
-        if new_head['y'] < 0: possible_moves.remove(move)
-        if new_head['y'] >= data['board']['height']-1: possible_moves.remove(move)
+        if new_head['x'] < 0: is_legal = False
+        if new_head['x'] >= data['board']['width']: is_legal = False
+        if new_head['y'] < 0: is_legal = False
+        if new_head['y'] >= data['board']['height']: is_legal = False
 
         #don't hit other snake body or own body
         for snake_dict in data['board']['snakes']:
             # if new_head in snake_dict['body']: possible_moves.remove(move)
             enemy_head = snake_dict['body'][0]
             if new_head in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
-                         {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}] or new_head in snake_dict['body']:
-                if move in possible_moves: possible_moves.remove(move)
+                         {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}] or new_head in snake_dict['body']:is_legal = False
+
+        if is_legal:
+            legal_moves.append(move)
+
     # Now choose possible move that gives the maximum heuristic value
     hueristic_values = dict()
-    for move in possible_moves:
+    for move in legal_moves:
         if move == "L":
             new_head['x'] = head['x']-1
             new_head['y'] = head['y'] 
