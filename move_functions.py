@@ -38,8 +38,9 @@ def hueristic_approach(data):
     # i.e wont hit a wall or body of itself or other snake
     new_head = dict()
     legal_moves = []
-    is_legal = True
+    
     for move in possible_moves:
+        is_legal = True
         print("for move -> ", move)
         if move == "L":
             new_head['x'] = head['x']-1
