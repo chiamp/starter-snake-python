@@ -33,7 +33,7 @@ def hueristic_approach(data):
         if head['x'] > neck['x']: # can't move left
             possible_moves.remove("L")
         else: possible_moves.remove("R")
-
+    print("---------moves remaining------" + possible_moves)
     # Check out of the remaining 3 moves which ones are legal
     # i.e wont hit a wall or body of itself or other snake
     new_head = dict()
@@ -68,7 +68,7 @@ def hueristic_approach(data):
 
         if is_legal:
             legal_moves.append(move)
-
+    print("---------legal moves----" + legal_moves)
     # Now choose possible move that gives the maximum heuristic value
     hueristic_values = dict()
     for move in legal_moves:
