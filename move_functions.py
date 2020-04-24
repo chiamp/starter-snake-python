@@ -23,6 +23,8 @@ def hueristic_approach(data):
     # Can't move back into itself
     head = data['you']['body'][0]
     neck = data['you']['body'][1]
+    print("HEAD", head)
+    print("NECK", neck)
     if head['x'] == neck['x']:
         # either can't move up or down
         if head['y'] > neck['y']: # can't move down
