@@ -1,8 +1,8 @@
 import random
 
 
-from tensorflow.keras.models import Sequential,Model,load_model
-from tensorflow.keras.layers import Dense,Conv2D,MaxPooling2D,Flatten
+from keras.models import Sequential,Model,load_model
+from keras.layers import Dense,Conv2D,MaxPooling2D,Flatten
 
 def get_move(data):
     # to be called by move function in server.py
