@@ -25,6 +25,8 @@ def greedy_eat(data):
         legal = True
         for snake_dict in data['board']['snakes']:
             enemy_head = snake_dict['body'][0]
+            print(new_coord,[{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
+                             {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}])
             if new_coord in snake_dict['body'] or \
                new_coord in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                              {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}]:
