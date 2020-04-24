@@ -53,9 +53,9 @@ def hueristic_approach(data):
 
         # dont hit edges
         if new_head['x'] < 0: possible_moves.remove(move)
-        if new_head['x'] >= data['board']['width']: possible_moves.remove(move)
+        if new_head['x'] >= data['board']['width']-1: possible_moves.remove(move)
         if new_head['y'] < 0: possible_moves.remove(move)
-        if new_head['y'] >= data['board']['height']: possible_moves.remove(move)
+        if new_head['y'] >= data['board']['height']-1: possible_moves.remove(move)
 
         #don't hit other snake body or own body
         for snake_dict in data['board']['snakes']:
