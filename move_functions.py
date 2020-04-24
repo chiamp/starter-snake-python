@@ -36,10 +36,11 @@ def hueristic_approach(data):
     print("---------moves remaining------",possible_moves)
     # Check out of the remaining 3 moves which ones are legal
     # i.e wont hit a wall or body of itself or other snake
-    new_head = dict()
+    
     legal_moves = []
     
     for move in possible_moves:
+        new_head = dict()
         is_legal = True
         print("for move -> ", move)
         if move == "L":
