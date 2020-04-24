@@ -72,7 +72,7 @@ def hueristic_approach(data):
             new_head['y'] = head['y']
         if move == "U":
             new_head['x'] = head['x']
-            nead_head['y'] = head['y'] + 1
+            new_head['y'] = head['y'] + 1
         if move == "D":
             new_head['x'] = head['x']
             new_head['y'] = head['y'] - 1
