@@ -117,7 +117,7 @@ def get_distances(head, snake_cords):
         distances.append(abs(head['x'] - cord['x']) + abs(head['y']- cord['y']))
     return min(distances)
 
- def distance_to_nearest_food(data, head):
+def distance_to_nearest_food(data, head):
     closest_distance = None
     for food_dict in data['board']['food']:
         distance = abs(head['x']-food_dict['x']) + abs(head['y']-food_dict['y'])
