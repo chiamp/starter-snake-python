@@ -60,27 +60,28 @@ def hueristic_approach(data):
         print("new head", new_head)
         # dont hit edges
         if new_head['x'] < 0: 
-            print('1')
+            print('Too far right')
             is_legal = False
         if new_head['x'] >= data['board']['width']: 
-            print('2')
+            print('Too far left')
             is_legal = False
         if new_head['y'] < 0: 
-            print('3')
+            print('Too high')
             is_legal = False
         if new_head['y'] >= data['board']['height']: 
-            print("4")
+            print("Too left")
             is_legal = False
 
-        #don't hit other snake body or own body
+        #don't hit other snake body 
         for snake_dict in data['board']['snakes']:
-            #if snake_dict['name']==data['you']['name']: continue # skip ourselves
+            if snake_dict['name']==data['you']['name']: continue # skip ourselves
             enemy_head = snake_dict['body'][0]
             if new_head in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                          {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}] or new_head in snake_dict['body']:
                 print('5')             
                 is_legal = False
-
+        # Don't hit your own body
+        if new_head in data['you']['body'][1:]: is_legal= False
         if is_legal:
             legal_moves.append(move)
     print("---------legal moves----", legal_moves)
