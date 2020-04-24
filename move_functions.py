@@ -62,7 +62,7 @@ def hueristic_approach(data):
             if new_head in snake_dict['body']: possible_moves.remove(move)
 
     # Now choose possible move that gives the maximum heuristic value
-    heuristic_values = dict()
+    hueristic_values = dict()
     for move in possible_moves:
         if move == "L":
             new_head['x'] = head['x']-1
@@ -79,7 +79,7 @@ def hueristic_approach(data):
 
         hueristic_values[move] = hueristic(data, new_head)
     
-    best_move = max(heuristic_values, key=hueristic_values.get)
+    best_move = max(hueristic_values, key=hueristic_values.get)
     
     return {'move': convert_move[best_move]}
 
