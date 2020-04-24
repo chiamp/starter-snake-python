@@ -28,8 +28,8 @@ def hueristic_approach(data):
     if head['x'] == neck['x']:
         # either can't move up or down
         if head['y'] > neck['y']: # can't move down
-            possible_moves.remove("D")
-        else: possible_moves.remove("U")
+            possible_moves.remove("U")
+        else: possible_moves.remove("D")
     
     else: # then y1 == y2, can't move left or right
         if head['x'] > neck['x']: # can't move left
@@ -53,10 +53,10 @@ def hueristic_approach(data):
             new_head['y'] = head['y']
         if move == "U":
             new_head['x'] = head['x']
-            new_head['y'] = head['y'] + 1
+            new_head['y'] = head['y'] - 1
         if move == "D":
             new_head['x'] = head['x']
-            new_head['y'] = head['y'] - 1
+            new_head['y'] = head['y'] + 1
         print("new head", new_head)
         # dont hit edges
         if new_head['x'] < 0: 
