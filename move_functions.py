@@ -123,7 +123,7 @@ def hueristic(data, head):
     # Want to minimize this value
     nearest_food = distance_to_nearest_food(data, head)
 
-    return distance_from_own_tail + min_distance - nearest_food
+    return distance_from_own_tail + min_distance - 2*nearest_food
 
 def min_distance_to_occupied(data):
     min_distance = 100
