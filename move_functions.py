@@ -41,13 +41,13 @@ def hueristic_approach(data):
         if move == "L":
             new_head['x'] = head['x']-1
             new_head['y'] = head['y'] 
-        else if move == "R":
+        if move == "R":
             new_head['x'] = head['x'] + 1
             new_head['y'] = head['y']
-        else if move == "U":
+        if move == "U":
             new_head['x'] = head['x']
             nead_head['y'] = head['y'] + 1
-        else:
+        if move == "D":
             new_head['x'] = head['x']
             new_head['y'] = head['y'] - 1
 
@@ -67,13 +67,13 @@ def hueristic_approach(data):
         if move == "L":
             new_head['x'] = head['x']-1
             new_head['y'] = head['y'] 
-        else if move == "R":
+        if move == "R":
             new_head['x'] = head['x'] + 1
             new_head['y'] = head['y']
-        else if move == "U":
+        if move == "U":
             new_head['x'] = head['x']
             nead_head['y'] = head['y'] + 1
-        else:
+        if move == "D":
             new_head['x'] = head['x']
             new_head['y'] = head['y'] - 1
 
