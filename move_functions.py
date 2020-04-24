@@ -74,8 +74,8 @@ def hueristic_approach(data):
             enemy_head = snake_dict['body'][0]
             if new_head in [{'x':enemy_head['x']-1,'y':enemy_head['y']},{'x':enemy_head['x']+1,'y':enemy_head['y']},
                          {'x':enemy_head['x'],'y':enemy_head['y']-1},{'x':enemy_head['x'],'y':enemy_head['y']+1}] or new_head in snake_dict['body']:
-            print('5')             
-            is_legal = False
+                print('5')             
+                is_legal = False
 
         if is_legal:
             legal_moves.append(move)
