@@ -80,7 +80,7 @@ def hueristic_approach(data):
         hueristic_values[move] = hueristic(data, new_head)
     
     best_move = max(heuristic_values, key=hueristic_values.get)
-    if best_move == "L"
+    
     return {'move': convert_move[best_move]}
 
 def hueristic(data, head):
