@@ -53,7 +53,7 @@ def hueristic_approach(data):
         if move == "D":
             new_head['x'] = head['x']
             new_head['y'] = head['y'] - 1
-
+        print("new head", new_head)
         # dont hit edges
         if new_head['x'] < 0: 
             print('1')
